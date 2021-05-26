@@ -65,9 +65,10 @@ async function handlePR(body, robotid) {
     );
     const {action, sender, pull_request, repository} = body;
     const mdMsg = 
-    `\<font color= \"warning\"\>**[${repository.full_name}](${repository.html_url}) 进行了一次PR操作**\</font\>
-> 操作者：[${sender.login}](https://github.com/${sender.login})
+    `\<font color= \"warning\"\>**收到一次PR操作**\</font\>
+> 项目：[${repository.full_name}](${repository.html_url})
 > 操作：${actionWords[action]}
+> 操作者：[${sender.login}](https://github.com/${sender.login})
 > 标题：${pull_request.title}
 > 源分支：${pull_request.head.ref}
 > 目标分支：${pull_request.base.ref}
