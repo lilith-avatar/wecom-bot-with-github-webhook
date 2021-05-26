@@ -48,10 +48,6 @@
 
 Merge Request 会有发起、合并、关闭、重新发起等几种情况，文案和颜色会有所不同。
 
-# 如何使用
-
-
-
 # 项目介绍 && 开发（热烈欢迎提PR）
 
 此项目用于连接git webhook和企业微信机器人webhook，采用koa2 + typescript开发，大部分git webhook 和 企业微信机器人的数据结构已经定义好typing，如：
