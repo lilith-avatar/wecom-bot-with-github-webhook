@@ -1,16 +1,4 @@
-![git-webhook-wework-robot](https://socialify.git.ci/LeoEatle/git-webhook-wework-robot/image?description=1&font=Raleway&forks=1&language=1&logo=https%3A%2F%2Fwwcdn.weixin.qq.com%2Fnode%2Fwework%2Fimages%2FRtxThumb_2x.c70ae513d7.png&owner=1&pattern=Plus&pulls=1&stargazers=1&theme=Light)
-
-
-<!-- [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
-[![docker build](https://img.shields.io/docker/automated/leoeatle/wxwork-git-robot)](https://cloud.docker.com/repository/docker/leoeatle/wxwork-git-robot/builds) -->
-
-# 快速
-
-直接在git项目中配置webhook `https://service-d6if097q-1251767583.gz.apigw.tencentcs.com/release/wechat-work-gitlab-robot?id={robotid}`
-
-其中robotid是你的机器人id，可以在企业微信的机器人列表中查看，见图：
-
-<img src="./docs/wework-demo.jpg" width="500">
+![git-webhook-wework-robot](https://socialify.git.ci/lilith-avatar/git-webhook-wework-robot/image?font=Rokkitt&issues=1&language=1&pattern=Diagonal%20Stripes&pulls=1&stargazers=1&theme=Dark&logo=https%3A%2F%2Fwwcdn.weixin.qq.com%2Fnode%2Fwework%2Fimages%2FRtxThumb_2x.c70ae513d7.png&owner=1)
 
 
 # Changelog
@@ -66,17 +54,17 @@ https://service-5mv1fv1k-1251767583.gz.apigw.tencentcs.com/release/wechatwork_gi
 # 目前支持的事件
 ## Push event 示例
 
-<img src="./docs/push_demo.png" width="500">
+<img src="./docs/push_snap.png" width="400">
 
 ## Issue event 示例
 
 <img src="./docs/issue_demo.png" width="500">
 
-## Merge Request 示例
+## Pull Request 示例
 
-<img src="./docs/mr_demo.png" width="500">
+<img src="./docs/pr_snap.png" width="400">
 
-Merge Request 会有发起、合并、关闭、重新发起等几种情况，文案会有所不同。
+Merge Request 会有发起、合并、关闭、重新发起等几种情况，文案和颜色会有所不同。
 
 # 如何使用
 
@@ -168,20 +156,6 @@ chatRobot推送信息相关: `chat.ts`
 git add .
 npm run commit # 让commitlint自动生成commit信息
 ```
-
-# TODO
-
-* 目前gitlab只做了`push`和`merge request`事件的handler，以及只做了文字和mardown信息的推送，其余事件和其他类型的推送还需开发。
-
-* github推送目前只考虑`push` `pr` `issue`，其他有待添加
-
-* ~~为了方便其他团队甚至外面开源的使用，考虑使用docker方便自己部署。~~
-
-* ~~考虑是不是可以在配置webhook的地方直接配置机器人id，分别推送~~
-
-* ~~进一步考虑是不是可以用GUI统一管理项目和机器人id的关系~~
-
-* 考虑可以补全gitlab的typing，实在太多了，有人帮忙就好了，github已经使用了有人开源整理的typing依赖库
 
 ## Contributors ✨
 
