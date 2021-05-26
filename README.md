@@ -4,7 +4,7 @@
 <!-- [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 [![docker build](https://img.shields.io/docker/automated/leoeatle/wxwork-git-robot)](https://cloud.docker.com/repository/docker/leoeatle/wxwork-git-robot/builds) -->
 
-# 快速
+# 快速11
 直接在git项目中配置webhook `https://service-d6if097q-1251767583.gz.apigw.tencentcs.com/release/wechat-work-gitlab-robot?id={robotid}`
 
 其中robotid是你的机器人id，可以在企业微信的机器人列表中查看，见图：
