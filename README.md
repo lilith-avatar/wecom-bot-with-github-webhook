@@ -25,7 +25,7 @@
 
 ## Github设置：
 
-在github项目中的`Setting`中选择`Webhooks`，选择`Add Webhooks`，填写url，如`http://{{你的域名或者IP}}/github?id=7048958e-8b4b-4381-9758-af84347c240c`。
+在github项目中的`Setting`中选择`Webhooks`，选择`Add Webhooks`，填写url，如`http://{{你的域名或者IP}}/github?id=7048958e-8b4b-4381-9758-af84347c240c`,如果是使用已经部署过的域名，则为`https://service-kv5we7wu-1253186802.gz.apigw.tencentcs.com/release/WxBot_Github/github?id=7048958e-8b4b-4381-9758-af84347c240c`。
 
 ![](./docs/github-demo.png)
 
