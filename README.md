@@ -1,33 +1,17 @@
 ![git-webhook-wework-robot](https://socialify.git.ci/lilith-avatar/git-webhook-wework-robot/image?font=Rokkitt&issues=1&language=1&pattern=Diagonal%20Stripes&pulls=1&stargazers=1&theme=Dark&logo=https%3A%2F%2Fwwcdn.weixin.qq.com%2Fnode%2Fwework%2Fimages%2FRtxThumb_2x.c70ae513d7.png&owner=1)
 
+# 介绍
+本项目是一个Fork自[LeoEatle/git-webhook-wework-robot](https://github.com/LeoEatle/git-webhook-wework-robot)的开源项目，用以在企业微信中使用机器人对github repo 的commit 和 pr 进行通知，在原repo的基础上根据项目需求进行了通知部分的更改。
 
-# Changelog
-2020-10
-支持了 gitlab 的 review/wiki 事件
+# 使用方法
 
-2020-9
-支持了 gitlab 的腾讯云函数 git 机器人
+## 使用已经部署的域名
 
-API网关地址: https://service-d6if097q-1251767583.gz.apigw.tencentcs.com/release/wechat-work-gitlab-robot?id={robotid}
+`https://service-kv5we7wu-1253186802.gz.apigw.tencentcs.com/release/WxBot_Github`
 
-自建云函数、设置 webhook 请参考下面 github 的介绍，是一样。
+## 自建云函数部署方式：
 
-2020-1
-支持了腾讯云云函数
-
-使用方式：
-在github中的`Webhook`配
-```
-https://service-5mv1fv1k-1251767583.gz.apigw.tencentcs.com/release/wechatwork_git_robot?id={robotid}
-```
-其中robotid是你需要推送的机器人id
-在github中的`Webhook`配置 API 的网关地址：https://service-5mv1fv1k-1251767583.gz.apigw.tencentcs.com/release/wechatwork_git_robot?id={robotid}
-
-**注意：其中robotid是你需要推送的机器人id**
-
-
-自建云函数方式：
-1. `git clone https://github.com/LeoEatle/git-webhook-wework-robot.git`
+1. `git clone https://github.com/lilith-avatar/git-webhook-wework-robot.git`
 2. 注册并登陆腾讯云管理后台，新建一个云函数，可以先选个Node的Helloworld模板
 3. 将代码中的`cloud`目录上传，见图
 ![](./docs/cloud1.png)
@@ -39,17 +23,15 @@ https://service-5mv1fv1k-1251767583.gz.apigw.tencentcs.com/release/wechatwork_gi
 
 6. ok!可以填到Github的webhook里了，类型选择`Send me everything`，也可以自定义，url填上上面的url，**别忘了要在后面加上`?id={你的机器人id}`作为参数**。
 
-可见下面[如何使用](https://github.com/LeoEatle/git-webhook-wework-robot#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8)。
+## Github设置：
 
-2019-8
-1. docker镜像上传到新地址：https://cloud.docker.com/repository/docker/leoeatle/wxwork-git-robot
+在github项目中的`Setting`中选择`Webhooks`，选择`Add Webhooks`，填写url，如`http://{{你的域名或者IP}}/github?id=7048958e-8b4b-4381-9758-af84347c240c`。
 
-2019-7
-1. 由于一直在维护公司内的机器人，有些改动不适用于外部使用。单独分开两个项目，不再作为两个分支管理。
+![](./docs/github-demo.png)
 
-2019-6
-1. 重新审视之前的`dockerfile`感觉过于臃肿，不如直接把dist打包进docker，所以进行了修改
-2. 之前的腾讯云服务器没钱了，wework-robot.xyz 宣告停止服务，如有需要请自行搭建
+`/github`用来区分github和gitlab，这两者的处理方式不同。
+
+`id`参数代表自定义的机器人id，可以在企业微信的机器人列表中查看（注意，这个必须要自己新建的机器人才能看到）
 
 # 目前支持的事件
 ## Push event 示例
@@ -68,63 +50,8 @@ Merge Request 会有发起、合并、关闭、重新发起等几种情况，文
 
 # 如何使用
 
-## Github
-
-如果是使用github，在github项目中的`Setting`中选择`Webhooks`，选择`Add Webhooks`，填写url，如`http://{{你的域名或者IP}}/github?id=7048958e-8b4b-4381-9758-af84347c240c`。
-
-![](./docs/github-demo.png)
-
-`/github`用来区分github和gitlab，这两者的处理方式不同。
-
-`id`参数代表自定义的机器人id，可以在企业微信的机器人列表中查看（注意，这个必须要自己新建的机器人才能看到），见图：
-
-![](./docs/robot-demo.jpg)
-
-## Gitlab
-
-如果是gitlab，将webhook地址改为`http://{{你的域名或者IP}}/git?id={{机器人id}}`
-
-注意这里的路由是**git**
-
-2019-10-17 更新
-现在**gitlab**路由也会指向同样的功能了，所以两种路由都可以
 
 
-# 如何部署
-
-**建议将此服务部署在自己的机器上**
-
-## 最简单的方式
-
-```bash
-# 在服务器上
-git pull https://github.com/LeoEatle/git-webhook-wework-robot.git
-npm install
-npm run build
-pm2 start ./dist/server.js
-```
-
-## 使用docker
-
-目前已经编译出了一份镜像文件，地址：https://cloud.docker.com/repository/docker/leoeatle/wxwork-git-robot
-```shell
-// 先登录
-sudo docker pull https://cloud.docker.com/repository/docker/leoeatle/wxwork-git-robot:latest
-docker run -d leoeatle/wxwork-git-robot
-```
-当然，也可以使用pm2-docker来同时利用到pm2和docker。
-
-## 机器人id配置
-
-如果需要修改服务器端的默认机器人id设置，请修改项目根目录下的`.env`
-
-```conf
-PORT=8080
-NODE_ENV=development
-JWT_SECRET=your-secret-whatever
-DATABASE_URL=postgres://user:pass@localhost:5432/apidb
-CHAT_ID=82c08203-82a6-4824-8319-04a361bc0b2a # 改这里！
-```
 # 项目介绍 && 开发（热烈欢迎提PR）
 
 此项目用于连接git webhook和企业微信机器人webhook，采用koa2 + typescript开发，大部分git webhook 和 企业微信机器人的数据结构已经定义好typing，如：
