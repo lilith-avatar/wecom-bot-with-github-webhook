@@ -116,6 +116,11 @@ async function handleIssue(body, robotid) {
     return;
 }
 
+/**
+ * 处理Release 事件
+ * @param ctx koa context
+ * @param robotid 机器人id
+ */
 async function handleRelease(body, robotid) {
     const robot = new ChatRobot(
         robotid
@@ -127,7 +132,7 @@ async function handleRelease(body, robotid) {
         release
     } = body;
     if (action !== "published") {
-        return "只接受发布信息"
+        return "只接受发布信息";
     }
     const mdMsg =
         `✨\<font color= \"warning\"\>**发布了Release**\</font\>
@@ -136,6 +141,86 @@ async function handleRelease(body, robotid) {
 > 标题: ${release.name}
 > 发布者: [${sender.login}](${sender.html_url})
 > [查看详情](${release.html_url})`;
+    await robot.sendMdMsg(mdMsg);
+    return;
+}
+
+/**
+ * 处理 Issue Comment 事件
+ * @param ctx koa context
+ * @param robotid 机器人id
+ */
+async function handleIssueComment(body, robotid) {
+    const robot = new ChatRobot(
+        robotid
+    );
+    const {
+        action,
+        issue,
+        comment,
+        repository
+    } = body;
+    if (action !== "created") {
+        return "只接受发布评论";
+    }
+    const mdMsg =
+        `🗯**有人发布了一条Issue评论**
+> 项目: [${repository.full_name}](${repository.html_url})
+> Issue标题: [${issue.title}](${issue.html_url})
+> 回复人: [${comment.user.login}](${comment.user.html_url})
+> 回复内容: ${comment.body}
+> [查看详情](${comment.html_url})`;
+    await robot.sendMdMsg(mdMsg);
+    return;
+}
+
+/**
+ * 处理 commit comment 事件
+ * @param ctx koa context
+ * @param robotid 机器人id
+ */
+async function handleCommitComment(body, robotid) {
+    const robot = new ChatRobot(
+        robotid
+    );
+    const {
+        repository,
+        comment
+    } = body;
+    const mdMsg =
+        `✅**接收到一条blame**
+> 项目: [${repository.full_name}](${repository.html_url})
+> 文件: ${comment.path}
+> 行数: \`${comment.line}\` 
+> 操作者: [${comment.user.login}](${comment.user.html_url})
+> 内容: ${comment.body}
+> [查看详情](${comment.html_url})`;
+    await robot.sendMdMsg(mdMsg);
+    return;
+}
+
+
+/**
+ * 处理 pr review comment 事件
+ * @param ctx koa context
+ * @param robotid 机器人id
+ */
+async function handlePRReviewComment(body, robotid) {
+    const robot = new ChatRobot(
+        robotid
+    );
+    const {
+        repository,
+        pull_request,
+        comment
+    } = body
+    const mdMsg =
+        `✊🏿**收到一条PR Review Comment**
+> 项目: [${repository.full_name}](${repository.html_url})
+> 操作者: [${comment.user.login}](${comment.user.html_url})
+> PR标题: [${pull_request.title}](${pull_request.html_url})
+> 评论内容: ${comment.body}
+> [查看详情](${comment.html_url})`;
     await robot.sendMdMsg(mdMsg);
     return;
 }
@@ -172,6 +257,12 @@ exports.main_handler = async (event, context, callback) => {
             return handleIssue(payload, robotid);
         case "release":
             return handleRelease(payload, robotid);
+        case "commit_comment":
+            return handleCommitComment(payload, robotid);
+        case "issue_comment":
+            return handleIssueComment(payload, robotid);
+        case "pull_request_review_comment":
+            return handlePRReviewComment(payload, robotid);
         default:
             return handleDefault(payload, gitEvent);
     }
