@@ -24,9 +24,11 @@ const ChatRobot = require('./chat');
 async function handlePing(body, robotid) {
     const robot = new ChatRobot(
         robotid
-        );
-        
-    const { repository } = body;
+    );
+
+    const {
+        repository
+    } = body;
     const msg = "成功收到了来自Github的Ping请求，项目名称：" + repository.name;
     await robot.sendTextMsg(msg);
     return msg;
@@ -41,18 +43,29 @@ async function handlePush(body, robotid) {
     const robot = new ChatRobot(
         robotid
     );
-    const { pusher, repository, commits, ref} = body;
+    const {
+        pusher,
+        repository,
+        commits,
+        ref
+    } = body;
     const user_name = pusher.name;
     //const lastCommit = commits[0];
     var mdMsg = '';
-    for (let i = 4; i >= 0; i--) {
+    var msgNum = 0;
+    if (commits.length >= 5) {
+        msgNum = 5
+    } else {
+        msgNum = commits.length
+    }
+    for (let i = msgNum - 1; i >= 0; i--) {
         mdMsg =
-        `✋\<font color= \"info\"\>**收到一次push提交**\</font\>
+            `✋\<font color= \"info\"\>**收到一次push提交**\</font\>
 > 项目: [${repository.name}](${repository.url}) 
 > 提交者:  [${user_name}](https://github.com/${user_name})
 > 分支:  [${ref}](${repository.url}/tree/${ref})
 > 信息: ${commits[i].message}`;
-    await robot.sendMdMsg(mdMsg);
+        await robot.sendMdMsg(mdMsg);
     }
 
     return mdMsg;
@@ -67,9 +80,14 @@ async function handlePR(body, robotid) {
     const robot = new ChatRobot(
         robotid
     );
-    const {action, sender, pull_request, repository} = body;
-    const mdMsg = 
-    `\<font color= \"warning\"\>**[${repository.full_name}](${repository.html_url}) 进行了一次PR操作**\</font\>
+    const {
+        action,
+        sender,
+        pull_request,
+        repository
+    } = body;
+    const mdMsg =
+        `\<font color= \"warning\"\>**[${repository.full_name}](${repository.html_url}) 进行了一次PR操作**\</font\>
 > 操作者：[${sender.login}](https://github.com/${sender.login})
 > 操作：${actionWords[action]}
 > 标题：${pull_request.title}
@@ -89,12 +107,16 @@ async function handleIssue(body, robotid) {
     const robot = new ChatRobot(
         robotid
     );
-    const { action, issue, repository } = body;
+    const {
+        action,
+        issue,
+        repository
+    } = body;
     if (action !== "opened") {
         return `除非有人开启新的issue，否则无需通知机器人`;
     }
-    const mdMsg = 
-    `**有人在 [${repository.name}](${repository.html_url}) ${actionWords[action]}了一个issue**
+    const mdMsg =
+        `**有人在 [${repository.name}](${repository.html_url}) ${actionWords[action]}了一个issue**
 > 标题：${issue.title}
 > 发起人：[${issue.user.login}](${issue.user.html_url})
 [查看详情](${issue.html_url})`;
@@ -121,7 +143,7 @@ exports.main_handler = async (event, context, callback) => {
     const query = querystring.parse(event.body);
     // console.log('query: ', query);
     const payload = JSON.parse(query.payload);
-    console.log('payload: ', payload);    
+    console.log('payload: ', payload);
     console.log('robotid: ', robotid);
     switch (gitEvent) {
         case "push":
