@@ -12,7 +12,7 @@
 <img src="./docs/wework-demo.jpg" width="500">
 
 
-# Changelog
+# Changelo
 2020-10
 支持了 gitlab 的 review/wiki 事件
 
