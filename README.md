@@ -170,7 +170,7 @@ npm run commit # 让commitlint自动生成commit信息
 
 # TODO
 
-* 目前gitlab只做了`push`和`merge request`事件的handler，以及只做了文字和mardown信息的推送，其余事件和其他类型的推送还需开
+* 目前gitlab只做了`push`和`merge request`事件的handler，以及只做了文字和mardown信息的推送，其余事件和其他类型的推送还需
 
 * github推送目前只考虑`push` `pr` `issue`，其他有待添加
 
