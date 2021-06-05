@@ -159,7 +159,7 @@ interface Repository {
 github事件handler: `github.ts`
 gitlab事件handler: `gilab.ts`
 
-chatRobot推送信息相关: `chat
+chatRobot推送信息相关: `cha
 
 ## 提交
 
