@@ -23,7 +23,7 @@ API网关地址: https://service-d6if097q-1251767583.gz.apigw.tencentcs.com/rele
 
 自建云函数、设置 webhook 请参考下面 github 的介绍，是一样。
 
-2020-
+2020
 支持了腾讯云云函数
 
 使用方式：
