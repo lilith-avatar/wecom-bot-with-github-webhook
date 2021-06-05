@@ -64,7 +64,7 @@ async function handlePush(body, robotid) {
 > 项目: [${repository.name}](${repository.url}) 
 > 提交者:  [${user_name}](https://github.com/${user_name})
 > 分支:  [${ref}](${repository.url}/tree/${ref})
-> 本条提交序号/提交数: ${i} / ${commits.length}
+> 本条提交序号/提交数: ${i+1} / ${commits.length}
 > 信息: ${commits[i].message}`;
         await robot.sendMdMsg(mdMsg);
     }
