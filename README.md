@@ -43,7 +43,7 @@ https://service-5mv1fv1k-1251767583.gz.apigw.tencentcs.com/release/wechatwork_gi
 3. 将代码中的`cloud`目录上传，见图
 ![](./docs/cloud1.png)
 
-4. 点击保存（保存后🉑️测试试试
+4. 点击保存（保存后🉑️测试试试）
 
 5. 选择触发方式，添加新的触发方式，类型选择API网关，保存后得到url
 ![](./docs/add_new.png)
