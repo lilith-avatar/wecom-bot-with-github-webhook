@@ -44,7 +44,7 @@ async function handlePush(body, robotid) {
     const { pusher, repository, commits, ref} = body;
     const user_name = pusher.name;
     //const lastCommit = commits[0];
-    const mdMsg = '';
+    var mdMsg = '';
     for (let i = 4; i >= 0; i--) {
         mdMsg =
         `✋\<font color= \"info\"\>**收到一次push提交**\</font\>
@@ -54,7 +54,7 @@ async function handlePush(body, robotid) {
 > 信息: ${commits[i].message}`;
     await robot.sendMdMsg(mdMsg);
     }
-    
+
     return mdMsg;
 }
 
