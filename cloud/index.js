@@ -66,7 +66,7 @@ async function handlePush(body, robotid) {
 信息: `;
     for (let i = msgNum - 1; i >= 0; i--) {
         mdMsg +=
-            `\n ${i+1}. ${commits[i].message}`;
+            `\n\n > ${commits[i].message}`;
     }
     await robot.sendMdMsg(mdMsg);
     return mdMsg;
