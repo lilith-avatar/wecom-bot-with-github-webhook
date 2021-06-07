@@ -52,23 +52,23 @@ async function handlePush(body, robotid) {
     } = body;
     const user_name = pusher.name;
     //const lastCommit = commits[0];
-    var mdMsg = '';
     var msgNum = 0;
     if (commits.length >= 5) {
         msgNum = 5
     } else {
         msgNum = commits.length
     }
+    var mdMsg = `✋\<font color= \"info\"\>**收到一次push提交**\</font\>
+本次commit数:${commits.length}
+项目: [${repository.name}](${repository.url}) 
+提交者:  [${user_name}](https://github.com/${user_name})
+分支:  [${ref}](${repository.url}/tree/${ref})
+信息: `;
     for (let i = msgNum - 1; i >= 0; i--) {
-        mdMsg =
-            `✋\<font color= \"info\"\>**收到一次push提交**\</font\>
-> 项目: [${repository.name}](${repository.url}) 
-> 提交者:  [${user_name}](https://github.com/${user_name})
-> 分支:  [${ref}](${repository.url}/tree/${ref})
-> 本条提交序号/提交数: ${i+1} / ${commits.length}
-> 信息: ${commits[i].message}`;
-        await robot.sendMdMsg(mdMsg);
+        mdMsg +=
+            `\n\n > ${commits[i].message}`;
     }
+    await robot.sendMdMsg(mdMsg);
     return mdMsg;
 }
 
