@@ -59,11 +59,10 @@ async function handlePush(body, robotid) {
         msgNum = commits.length
     }
     var mdMsg = `✋\<font color= \"info\"\>**收到一次push提交**\</font\>
-本次commit数:${commits.length}
 项目: [${repository.name}](${repository.url}) 
 提交者:  [${user_name}](https://github.com/${user_name})
 分支:  [${ref}](${repository.url}/tree/${ref})
-信息: `;
+信息(共${commits.length}条): `;
     for (let i = msgNum - 1; i >= 0; i--) {
         mdMsg +=
             `\n\n > ${commits[i].message}`;
