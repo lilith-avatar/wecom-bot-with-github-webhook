@@ -61,8 +61,10 @@ async function handlePush(body, robotid) {
     var mdMsg = `✋\<font color= \"info\"\>**收到一次push提交**\</font\>
 项目: [${repository.name}](${repository.url}) 
 提交者:  [${user_name}](https://github.com/${user_name})
-分支:  [${ref}](${repository.url}/tree/${ref})
-信息(共${commits.length}条): `;
+分支:  [${ref}](${repository.url}/tree/${ref})`
+    if(commits.length > 0){
+        mdMsg += `信息(共${commits.length}条): `;
+    }
     for (let i = msgNum - 1; i >= 0; i--) {
         mdMsg +=
             `\n\n > ${commits[i].message}`;
