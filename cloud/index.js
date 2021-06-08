@@ -63,7 +63,7 @@ async function handlePush(body, robotid) {
 提交者:  [${user_name}](https://github.com/${user_name})
 分支:  [${ref}](${repository.url}/tree/${ref})`
     if(commits.length > 0){
-        mdMsg += `信息(共${commits.length}条): `;
+        mdMsg += `\n 信息(共${commits.length}条): `;
     }
     for (let i = msgNum - 1; i >= 0; i--) {
         mdMsg +=
