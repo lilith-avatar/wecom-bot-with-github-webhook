@@ -13,6 +13,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "endaye",
+      "name": "Yuancheng Zhang",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4829591?v=4",
+      "profile": "https://endaye.com",
+      "contributions": [
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,
