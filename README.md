@@ -1,4 +1,7 @@
 ![git-webhook-wework-robot](https://socialify.git.ci/lilith-avatar/git-webhook-wework-robot/image?font=Rokkitt&issues=1&language=1&pattern=Diagonal%20Stripes&pulls=1&stargazers=1&theme=Dark&logo=https%3A%2F%2Fwwcdn.weixin.qq.com%2Fnode%2Fwework%2Fimages%2FRtxThumb_2x.c70ae513d7.png&owner=1)
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 # 介绍
 本项目是一个Fork自[LeoEatle/git-webhook-wework-robot](https://github.com/LeoEatle/git-webhook-wework-robot)的开源项目，用以在企业微信中使用机器人对github repo 的commit 和 pr 进行通知，在原repo的基础上根据项目需求进行了通知部分的更改。
@@ -79,6 +82,19 @@ npm run commit # 让commitlint自动生成commit信息
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/lilith-avatar-yenyuan"><img src="https://avatars.githubusercontent.com/u/64084912?v=4?s=100" width="100px;" alt=""/><br /><sub><b>YenYuan</b></sub></a><br /><a href="https://github.com/lilith-avatar/wecom-bot-with-github-webhook/commits?author=lilith-avatar-yenyuan" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
