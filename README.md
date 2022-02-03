@@ -1,6 +1,6 @@
 ![git-webhook-wework-robot](https://socialify.git.ci/lilith-avatar/git-webhook-wework-robot/image?font=Rokkitt&issues=1&language=1&pattern=Diagonal%20Stripes&pulls=1&stargazers=1&theme=Dark&logo=https%3A%2F%2Fwwcdn.weixin.qq.com%2Fnode%2Fwework%2Fimages%2FRtxThumb_2x.c70ae513d7.png&owner=1)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 # 介绍
@@ -88,6 +88,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://github.com/lilith-avatar-yenyuan"><img src="https://avatars.githubusercontent.com/u/64084912?v=4?s=100" width="100px;" alt=""/><br /><sub><b>YenYuan</b></sub></a><br /><a href="https://github.com/lilith-avatar/wecom-bot-with-github-webhook/commits?author=lilith-avatar-yenyuan" title="Code">💻</a> <a href="#maintenance-lilith-avatar-yenyuan" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://endaye.com"><img src="https://avatars.githubusercontent.com/u/4829591?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Yuancheng Zhang</b></sub></a><br /><a href="https://github.com/lilith-avatar/wecom-bot-with-github-webhook/pulls?q=is%3Apr+reviewed-by%3Aendaye" title="Reviewed Pull Requests">👀</a></td>
   </tr>
 </table>
 
