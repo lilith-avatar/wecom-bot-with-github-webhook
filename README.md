@@ -87,7 +87,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/lilith-avatar-yenyuan"><img src="https://avatars.githubusercontent.com/u/64084912?v=4?s=100" width="100px;" alt=""/><br /><sub><b>YenYuan</b></sub></a><br /><a href="https://github.com/lilith-avatar/wecom-bot-with-github-webhook/commits?author=lilith-avatar-yenyuan" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/lilith-avatar-yenyuan"><img src="https://avatars.githubusercontent.com/u/64084912?v=4?s=100" width="100px;" alt=""/><br /><sub><b>YenYuan</b></sub></a><br /><a href="https://github.com/lilith-avatar/wecom-bot-with-github-webhook/commits?author=lilith-avatar-yenyuan" title="Code">💻</a> <a href="#maintenance-lilith-avatar-yenyuan" title="Maintenance">🚧</a></td>
   </tr>
 </table>
 
